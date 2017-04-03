@@ -21,13 +21,13 @@ class BLEViewController: UIViewController, CBCentralManagerDelegate, CBPeriphera
     
     // Core Bluetooth properties
     var centralManager:CBCentralManager!//responsible for scanning, discovering and connecting peripherals.
-    var sensorTag:CBPeripheral?//B/c we're only using one peripheral.
+    var SJOne:CBPeripheral?//B/c we're only using one peripheral.
 
     @IBOutlet weak var statusLabel: UILabel!
     
     var keepScanning = false
 
-    let sensorTagName = "BLE_SHD"
+    let bleDeviceName = "BLE_SHD"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,41 +77,41 @@ class BLEViewController: UIViewController, CBCentralManagerDelegate, CBPeriphera
             print("NEXT PERIPHERAL UUID: \(peripheral.identifier.uuidString)")
             statusLabel.text = "Found BLE DEVICE"
             
-            if peripheralName == sensorTagName {
-                print("SENSOR TAG FOUND! ADDING \(peripheralName) NOW!!!")
+            if peripheralName == bleDeviceName {
+                print("FOUND DEVICE FOUND! ADDING \(peripheralName) NOW!!!")
                 //// to save power, stop scanning for other devices
                 //keepScanning = false
                 //disconnectButton.isEnabled = true
                 centralManager?.stopScan()
                 
                 // save a reference to the sensor tag
-                sensorTag = peripheral
-                sensorTag!.delegate = self //set delegate to be the view controller.
+                SJOne = peripheral
+                SJOne!.delegate = self //set delegate to be the view controller.
                 
                 // Request a connection to the peripheral
-                centralManager.connect(sensorTag!, options: nil)
+                centralManager.connect(SJOne!, options: nil)
             }
         }
     }
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
-        print("**** SUCCESSFULLY CONNECTED TO SENSOR TAG!!!")
+        print("**** SUCCESSFULLY CONNECTED TO BLE DEVICE!!!")
         
-        sensorTag?.delegate = self
+        SJOne?.delegate = self
         peripheral.discoverServices(nil)
     }
     
     func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
-        print("**** CONNECTION TO SENSOR TAG FAILED!!!")
+        print("**** CONNECTION TO BLE DEVICE FAILED!!!")
     }
     
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
-        print("**** DISCONNECTED FROM SENSOR TAG!!!")
+        print("**** DISCONNECTED FROM BLE DEVICE!!!")
 
         if error != nil {
             print("****** DISCONNECTION DETAILS: \(error!.localizedDescription)")
         }
-        sensorTag = nil
+        SJOne = nil
     }
     
     
@@ -130,7 +130,6 @@ class BLEViewController: UIViewController, CBCentralManagerDelegate, CBPeriphera
                 print("Discovered service \(service.uuid)")
                 // If discover the characteristics for those services.
                 if (service.uuid == CBUUID(string: DEVICE_INFO_UUID)){
-                    print("****SERVICE TEST****")
                     peripheral.discoverCharacteristics(nil, for: service)
                     statusLabel.text = "FOUND SERVICE"
                 }
