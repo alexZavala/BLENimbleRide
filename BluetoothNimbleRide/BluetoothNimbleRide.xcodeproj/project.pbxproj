@@ -96,7 +96,7 @@
 				TargetAttributes = {
 					2596E3DE1E91D8F3002964C8 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = LAPKZ7JHB5;
+						DevelopmentTeam = EPFR8GW7PK;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -259,10 +259,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = LAPKZ7JHB5;
+				DEVELOPMENT_TEAM = EPFR8GW7PK;
 				INFOPLIST_FILE = BluetoothNimbleRide/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.SeniorProject.BluetoothNimbleRide;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SeniorProject2.BluetoothNimbleRide;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -272,10 +273,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = LAPKZ7JHB5;
+				DEVELOPMENT_TEAM = EPFR8GW7PK;
 				INFOPLIST_FILE = BluetoothNimbleRide/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.SeniorProject.BluetoothNimbleRide;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SeniorProject2.BluetoothNimbleRide;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -300,6 +302,7 @@
 				2596E3F31E91D8F3002964C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
